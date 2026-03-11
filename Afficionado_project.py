@@ -419,4 +419,5 @@ with tabs[5]:
 
 st.markdown("---")
 st.markdown('<div style="text-align:center;color:#8B7355;font-size:0.78rem;">☕ Afficionado Coffee Roasters · 2025 · Streamlit · Plotly · scikit-learn</div>',
+
             unsafe_allow_html=True)
