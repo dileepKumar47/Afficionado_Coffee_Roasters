@@ -253,7 +253,7 @@ with T[4]:
             except: pass
     mdf=pd.DataFrame([{"Model":k,"MAE":v["MAE"],"RMSE":v["RMSE"],"MAPE(%)":v["MAPE(%)"]} for k,v in res.items()]).sort_values("RMSE").reset_index(drop=True)
     st.success(f"🏆 Best: **{mdf.iloc[0]['Model']}** (lowest RMSE)")
-    st.dataframe(mdf.style.background_gradient(cmap="YlOrBr",subset=["MAE","RMSE","MAPE(%)"]),width='stretch',hide_index=True)
+    st.dataframe(mdf, width='stretch', hide_index=True)    
     fe=F("Actual vs Predicted"); fe.add_trace(go.Scatter(x=td,y=te.values,name="Actual",line=dict(color="#1C1008",width=3)))
     pal=["#C8722A","#5B8DB8","#5C8C5A","#8B7355","#E07B39","#9B59B6"]
     for i,(n,v) in enumerate(res.items()): fe.add_trace(go.Scatter(x=td,y=v["preds"],name=n,line=dict(color=pal[i%len(pal)],width=1.8,dash="dash")))
